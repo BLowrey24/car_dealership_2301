@@ -26,10 +26,17 @@ class Dealership
   end
 
   def car_by_make(make)
-  inventory.select { |car| car.make == make }
+    inventory.select { |car| car.make == make }
   end
 
   def total_value
-  inventory.reduce(0) { |sum, car| sum + car.total_cost }
+    inventory.reduce(0) { |sum, car| sum + car.total_cost }
+  end
+
+  def details
+    {
+      "total_value" =>  total_value,
+      "address" => address
+    }
   end
 end
