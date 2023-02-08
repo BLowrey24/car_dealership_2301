@@ -8,9 +8,14 @@ class Car
     @make, @model = make_model.split(" ")
     @monthly_payment = monthly_payment
     @loan_length = loan_length
+    @color = nil
   end
 
   def total_cost
     @monthly_payment * @loan_length
+  end
+
+  def color 
+    @color
   end
 end
