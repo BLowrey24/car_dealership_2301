@@ -33,4 +33,16 @@ RSpec.describe Dealership do
       expect(dealership.inventory_count).to eq(2)
     end
   end
+
+  describe '#has_inventory?' do
+    it 'returns false if there are no cars in inventory' do
+      expect(dealership.has_inventory?).to eq(false)
+    end
+
+    it 'returns true if there is at least one car in inventory' do
+      dealership.add_car(car_1)
+
+      expect(dealership.has_inventory?).to eq(true)
+    end
+  end
 end
