@@ -70,4 +70,20 @@ RSpec.describe Dealership do
       expect(dealership.total_value).to eq(156000)
     end
   end
+
+  describe '#details' do
+    it 'returns a hash of dealership details' do
+      dealership.add_car(car_1)
+      dealership.add_car(car_2)
+      dealership.add_car(car_3)
+      dealership.add_car(car_4)
+
+      expected_hash = {
+      "total_value" => 156000,
+      "address" => "123 Main Street"
+    }
+
+      expect(dealership.details).to eq(expected_hash)
+    end
+  end
 end
