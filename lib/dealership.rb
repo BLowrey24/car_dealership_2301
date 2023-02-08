@@ -24,4 +24,8 @@ class Dealership
       true
     end
   end
+
+  def car_by_make(make)
+  inventory.select { |car| car.make == make }
+  end
 end

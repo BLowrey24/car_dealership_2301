@@ -50,6 +50,11 @@ RSpec.describe Dealership do
 
   describe '#car_by_make' do
     it 'returns an array of cars with the same make' do
+      dealership.add_car(car_1)
+      dealership.add_car(car_2)
+      dealership.add_car(car_3)
+      dealership.add_car(car_4)
+
       expect(dealership.car_by_make("Toyota")).to eq([car_2, car_3])
       expect(dealership.car_by_make("Ford")).to eq([car_1])
     end
