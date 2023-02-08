@@ -59,4 +59,15 @@ RSpec.describe Dealership do
       expect(dealership.car_by_make("Ford")).to eq([car_1])
     end
   end
+
+  describe '#total_value' do
+    it 'returns the total_value of all the cars' do
+      dealership.add_car(car_1)
+      dealership.add_car(car_2)
+      dealership.add_car(car_3)
+      dealership.add_car(car_4)
+      
+      expect(dealership.total_value).to eq(156000)
+    end
+  end
 end
