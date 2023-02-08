@@ -3,7 +3,9 @@ require './lib/dealership'
 
 RSpec.describe Dealership do
   let(:dealership) { Dealership.new("Acme Auto", "123 Main Street") }
-
+  let(:car_1) { Car.new("Ford Mustang", 1500, 36) }
+  let(:car_2) { Car.new("Toyota Prius", 1000, 48) }
+  
   describe '#initialize' do
     it 'exists' do
       expect(dealership).to be_a(Dealership)
@@ -19,6 +21,16 @@ RSpec.describe Dealership do
   describe '#inventory_count' do
     it 'can count inventory' do
       expect(dealership.inventory_count).to eq(0)
+    end
+  end
+
+  describe '#add_car' do
+    it 'can add car to inventory' do
+      dealership.add_car(car_1)
+      dealership.add_car(car_2)
+
+      expect(dealership.inventory).to eq([car_1, car_2])
+      expect(dealership.inventory_count).to eq(2)
     end
   end
 end
