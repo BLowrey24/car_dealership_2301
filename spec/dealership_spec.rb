@@ -5,6 +5,8 @@ RSpec.describe Dealership do
   let(:dealership) { Dealership.new("Acme Auto", "123 Main Street") }
   let(:car_1) { Car.new("Ford Mustang", 1500, 36) }
   let(:car_2) { Car.new("Toyota Prius", 1000, 48) }
+  let(:car_3) { Car.new("Toyota Tercel", 500, 48) }
+  let(:car_4) { Car.new("Chevrolet Bronco", 1250, 24) }
   
   describe '#initialize' do
     it 'exists' do
@@ -43,6 +45,13 @@ RSpec.describe Dealership do
       dealership.add_car(car_1)
 
       expect(dealership.has_inventory?).to eq(true)
+    end
+  end
+
+  describe '#car_by_make' do
+    it 'returns an array of cars with the same make' do
+      expect(dealership.car_by_make("Toyota")).to eq([car_2, car_3])
+      expect(dealership.car_by_make("Ford")).to eq([car_1])
     end
   end
 end
