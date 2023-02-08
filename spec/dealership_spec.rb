@@ -15,4 +15,10 @@ RSpec.describe Dealership do
       expect(dealership.inventory).to eq([])
     end
   end
+
+  describe '#inventory_count' do
+    it 'can count inventory' do
+      expect(dealership.inventory_count).to eq(0)
+    end
+  end
 end
