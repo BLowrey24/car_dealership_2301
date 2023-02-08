@@ -39,7 +39,7 @@ RSpec.describe Car do
 
   describe '#paint!' do
     it 'adds color to the car' do
-      paint!(:blue)
+      car.paint!(:blue)
 
       expect(car.color).to eq(:blue)
     end
